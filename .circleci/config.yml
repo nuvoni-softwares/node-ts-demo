@@ -4,6 +4,12 @@ jobs:
         docker:
             - image: circleci/node:14.16.0
         steps:
+            - checkout
+            - run:
+                name: Install npm dependencies
+                command: |
+                  npm i
+                  npm i --save-dev @types/jest
             - run:
                 name: Test
                 command: |
@@ -17,6 +23,7 @@ jobs:
                 name: Install npm dependencies
                 command: |
                   npm i
+                  npm i --save-dev @types/jest
             - run:
                 name: Test
                 command: |
