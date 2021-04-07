@@ -1,6 +1,6 @@
-export const addNumbers = async (value_1: number, value_2: number) => {
+export const addNumbers = (value_1: number, value_2: number): number => {
     try {
-        let v1 = parseFloat(value_1.toFixed(2)),
+        const v1 = parseFloat(value_1.toFixed(2)),
             v2 = parseFloat(value_2.toFixed(2))
         return v1 + v2
     } catch (e) {
@@ -8,9 +8,9 @@ export const addNumbers = async (value_1: number, value_2: number) => {
     }
 }
 
-export const subtractNumbers = async (value_1: number, value_2: number) => {
+export const subtractNumbers = (value_1: number, value_2: number): number => {
     try {
-        let v1 = parseFloat(value_1.toFixed(2)),
+        const v1 = parseFloat(value_1.toFixed(2)),
             v2 = parseFloat(value_2.toFixed(2))
         return v1 - v2
     } catch (e) {
