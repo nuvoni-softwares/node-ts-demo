@@ -2,7 +2,7 @@ version: 2
 jobs:
     build_master:
         docker:
-            - image: circleci/node:10.13.0
+            - image: circleci/node:14.16.0
         steps:
             - run:
                 name: Test
@@ -10,7 +10,7 @@ jobs:
                   npm run test
     test_dev:  
         docker:
-            - image: circleci/node:10.13.0
+            - image: circleci/node:14.16.0
         steps:
             - checkout
             - run:
