@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 20%;
+    max-width: 40%;
+}
+
+.nuvoni {
+    width: 10%;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
