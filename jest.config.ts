@@ -111,7 +111,8 @@ export default {
    reporters: ["default", 
    [ "jest-junit", { 
      suiteName: "jest tests",
-     outputDirectory: "./test_result/", 
+     outputDirectory: "./test_result/junit/",
+     outputName: "results.xml",
     } ]
   ],
 
