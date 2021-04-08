@@ -8,8 +8,10 @@ jobs:
             - run:
                 name: Install npm dependencies
                 command: |
-                  npm i
+                  npm i --production
                   npm i --save-dev @types/jest
+                  sudo python get-pip.py
+                  sudo pip install awsebcli --upgrade
             - run:
                 name: Test
                 command: |
