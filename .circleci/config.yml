@@ -25,7 +25,6 @@ jobs:
                 name: Install npm dependencies
                 command: |
                   npm i --production
-                  npm i --save-dev @types/jest
             - run:
                 name: Test
                 command: |
