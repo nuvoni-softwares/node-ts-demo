@@ -7,10 +7,10 @@ jobs:
             - image: cimg/node:15.14.0
         steps:
             - checkout
-            - run:
-                command: |
-                    sudo apt-get -y -qq update
-                    sudo apt-get install python-pip python-dev build-essential
+            # - run:
+            #     command: |
+            #         sudo apt-get -y -qq update
+            #         sudo apt-get install python-pip python-dev build-essential
             - eb/setup
             - run:
                 name: Install npm dependencies
