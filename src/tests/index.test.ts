@@ -1,6 +1,5 @@
 import request from 'supertest';
 import expressApp from '../app';
-import { addNumbers, subtractNumbers, isPrime } from '../services/numbers';
 
 describe('Calculator', () => {
 
