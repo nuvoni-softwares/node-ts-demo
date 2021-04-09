@@ -7,11 +7,6 @@ jobs:
             - image: cimg/node:15.14.0
         steps:
             - checkout
-            # - run:
-            #     command: |
-            #         sudo apt-get -y -qq update
-            #         sudo apt-get install python-pip python-dev build-essential
-            - eb/setup
             - run:
                 name: Install npm dependencies
                 command: |
@@ -24,11 +19,12 @@ jobs:
                 path: ./test-results/junit
             - store_test_results:
                 path: ./test_result/
+            - eb/setup
             - run: 
                 name: EB Deploy
                 command: |
-                    eb init $APPLICATION_NAME -r $AWS_DEFAULT_REGION -p Node.js
-                    eb deploy --staged $ENVIROMENT
+                    eb init $APPLICATION_NAME -r $AWS_DEFAULT_REGION -p node.js
+                    eb deploy -l $CIRCLE_BUILD_NUM $ENVIROMENT
                     eb status
     test_dev:  
         docker:
