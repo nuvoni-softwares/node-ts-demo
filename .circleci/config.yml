@@ -45,13 +45,13 @@ jobs:
                 path: ./test_result/
             - run:
                 name: Create a Zip file
-                command: zip -r << parameters.label >>.zip << parameters.label >>
+                command: zip build.zip -r build public package.json
             - persist_to_workspace:
                 root: .
                 paths:
-                    - << parameters.label >>.zip
+                    - build.zip
             - store_artifacts:
-                path: << parameters.label >>.zip
+                path: build.zip
 workflows:
     version: 2.1
     build_master:
