@@ -1,20 +1,30 @@
-version: 2
+version: 2.1
+orbs:
+  eb: circleci/aws-elastic-beanstalk@1.0.0
 jobs:
     build_master:
         docker:
             - image: circleci/node:14.16.0
         steps:
             - checkout
+            - eb/setup
             - run:
                 name: Install npm dependencies
                 command: |
                   npm i
-                  sudo python get-pip.py
-                  sudo pip install awsebcli --upgrade
             - run:
                 name: Test
                 command: |
                   npm run test
+            - store_artifacts:
+                path: ./test-results/junit
+            - store_test_results:
+                path: ./test_result/
+            - run: 
+                name: EB Deploy
+                command: |
+                    eb deploy Testeimed-env
+                    eb status
     test_dev:  
         docker:
             - image: circleci/node:14.16.0
