@@ -44,6 +44,8 @@ jobs:
             - store_test_results:
                 path: ./test_result/
             - run:
+                command: npm run build
+            - run:
                 name: Create a Zip file
                 command: zip build.zip -r build public package.json
             - persist_to_workspace:
