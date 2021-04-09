@@ -27,7 +27,8 @@ jobs:
             - run: 
                 name: EB Deploy
                 command: |
-                    eb deploy Testeimed-env
+                    eb init $APPLICATION_NAME -r $AWS_DEFAULT_REGION -p Node.js
+                    eb deploy --staged $ENVIROMENT
                     eb status
     test_dev:  
         docker:
