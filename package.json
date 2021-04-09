@@ -6,10 +6,11 @@
   "scripts": {
     "start": "node .",
     "dev": "tsnd ./src/server.ts",
-    "build": "npm run lint && npm run build-ts",
+    "build": "npm run lint && npm run build-ts && npm run version",
     "build-ts": "tsc",
     "lint": "eslint --ext .jsx,.js,.ts src/",
-    "test": "jest --detectOpenHandles --forceExit --logHeapUsage"
+    "test": "jest --detectOpenHandles --forceExit --logHeapUsage",
+    "version": "tsnd version"
   },
   "author": "Nuvoni",
   "license": "ISC",
