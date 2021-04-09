@@ -14,6 +14,7 @@ export class IndexRouter {
 
     private routes() {
         this.router.get("/", this.indexCtrl.index);
+        this.router.get("/primes/:prime_count", this.indexCtrl.primes);
         this.router.post("/add", this.indexCtrl.add);
         this.router.post("/subtract", this.indexCtrl.subtract);
     }
