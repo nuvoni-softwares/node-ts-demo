@@ -14,10 +14,9 @@ export class IndexController {
 
   public add(req: Request, res: Response, next: NextFunction): void {
     try {
-      let { value_1, value_2 } = req.body;
-      addNumbers(value_1, value_2)
-        .then(result => res.json({ result }))
-        .catch(next)
+      const { value_1, value_2 } = req.body;
+      const result = addNumbers(value_1, value_2)
+      res.json({ result })
     } catch (err) {
       next(err)
     }
@@ -25,10 +24,9 @@ export class IndexController {
 
   public subtract(req: Request, res: Response, next: NextFunction): void {
     try {
-      let { value_1, value_2 } = req.body;
-      subtractNumbers(value_1, value_2)
-        .then(result => res.json({ result }))
-        .catch(next)
+      const { value_1, value_2 } = req.body;
+      const result = subtractNumbers(value_1, value_2)
+      res.json({ result })
     } catch (err) {
       next(err)
     }
