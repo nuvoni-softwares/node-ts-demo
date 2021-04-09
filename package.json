@@ -4,7 +4,7 @@
   "description": "",
   "main": "./build/server.js",
   "scripts": {
-    "start": "npm run build-ts && node .",
+    "start": "node .",
     "dev": "tsnd ./src/server.ts",
     "build": "npm run lint && npm run build-ts",
     "build-ts": "tsc",

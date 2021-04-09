@@ -23,20 +23,14 @@ jobs:
                 name: Build Files
                 command: npm run build
             - run:
-                name: Create a Zip file
-                command: zip build.zip -r build public package.json
-            - persist_to_workspace:
-                root: .
-                paths:
-                    - build.zip
-            - store_artifacts:
-                path: build.zip
+                name: Staging
+                command: git add .
             - eb/setup
             - run: 
                 name: EB Deploy
                 command: |
                     eb init $APPLICATION_NAME -r $AWS_DEFAULT_REGION -p node.js
-                    eb deploy -l $CIRCLE_BUILD_NUM $ENVIROMENT
+                    eb deploy --staged -l $CIRCLE_BUILD_NUM $ENVIROMENT
                     eb status
     test_dev:  
         docker:
@@ -48,6 +42,9 @@ jobs:
                 command: |
                   npm i
             - run:
+                name: Build Files
+                command: npm run build
+            - run:
                 name: Test
                 command: |
                   npm run test
@@ -55,18 +52,6 @@ jobs:
                 path: ./test-results/junit
             - store_test_results:
                 path: ./test_result/
-            - run:
-                name: Build Files
-                command: npm run build
-            - run:
-                name: Create a Zip file
-                command: zip build.zip -r build public package.json
-            - persist_to_workspace:
-                root: .
-                paths:
-                    - build.zip
-            - store_artifacts:
-                path: build.zip
 workflows:
     version: 2.1
     build_master:
