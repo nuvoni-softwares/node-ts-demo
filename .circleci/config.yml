@@ -19,6 +19,9 @@ jobs:
                 path: ./test-results/junit
             - store_test_results:
                 path: ./test_result/
+            - run:
+                name: Build Files
+                command: npm run build
             - eb/setup
             - run: 
                 name: EB Deploy
@@ -43,8 +46,20 @@ jobs:
                 path: ./test-results/junit
             - store_test_results:
                 path: ./test_result/
+            - run:
+                name: Build Files
+                command: npm run build
+            - run:
+                name: Create a Zip file
+                command: zip build.zip -r build public package.json
+            - persist_to_workspace:
+                root: .
+                paths:
+                    - build.zip
+            - store_artifacts:
+                path: build.zip
 workflows:
-    version: 2
+    version: 2.1
     build_master:
         jobs:
             - build_master:
