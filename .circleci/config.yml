@@ -4,9 +4,13 @@ orbs:
 jobs:
     build_master:
         docker:
-            - image: circleci/node:14.16.0
+            - image: cimg/node:15.16.0
         steps:
             - checkout
+            - run:
+                command: |
+                    sudo apt-get -y -qq update
+                    sudo apt-get install python-pip python-dev build-essential
             - eb/setup
             - run:
                 name: Install npm dependencies
