@@ -43,8 +43,17 @@ jobs:
                 path: ./test-results/junit
             - store_test_results:
                 path: ./test_result/
+            - run:
+                name: Create a Zip file
+                command: zip -r << parameters.label >>.zip << parameters.label >>
+            - persist_to_workspace:
+                root: .
+                paths:
+                    - << parameters.label >>.zip
+            - store_artifacts:
+                path: << parameters.label >>.zip
 workflows:
-    version: 2
+    version: 2.1
     build_master:
         jobs:
             - build_master:
