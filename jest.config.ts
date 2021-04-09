@@ -47,8 +47,8 @@ export default {
   coverageThreshold: {
     "global": {
       // "branches": 50,
-      "functions": 70,
-      "lines": 70,
+      // "functions": 70,
+      // "lines": 70,
       // "statements": 50
     }
   },
@@ -108,12 +108,12 @@ export default {
   // projects: undefined,
 
   // Use this configuration option to add custom reporters to Jest
-   reporters: ["default", 
-   [ "jest-junit", { 
-     suiteName: "jest tests",
-     outputDirectory: "./test_result/junit/",
-     outputName: "results.xml",
-    } ]
+  reporters: ["default",
+    ["jest-junit", {
+      suiteName: "jest tests",
+      outputDirectory: "./test_result/junit/",
+      outputName: "results.xml",
+    }]
   ],
 
   // Automatically reset mock state between every test

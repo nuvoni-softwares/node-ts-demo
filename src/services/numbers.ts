@@ -17,3 +17,15 @@ export const subtractNumbers = (value_1: number, value_2: number): number => {
         throw e
     }
 }
+
+export const isPrime = (num: number): boolean => {
+    try {
+        for (let i = 2; i < num; i++)
+            if (num % i === 0) {
+                return false;
+            }
+        return num > 1;
+    } catch (e) {
+        throw e
+    }
+}

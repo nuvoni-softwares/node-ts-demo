@@ -9,7 +9,7 @@
     "build": "npm run lint && npm run build-ts",
     "build-ts": "tsc",
     "lint": "eslint --ext .jsx,.js,.ts src/",
-    "test": "cross-env NODE_ENV=TEST jest --detectOpenHandles --forceExit --logHeapUsage"
+    "test": "jest --detectOpenHandles --forceExit --logHeapUsage"
   },
   "author": "Nuvoni",
   "license": "ISC",

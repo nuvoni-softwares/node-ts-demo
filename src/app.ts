@@ -1,7 +1,7 @@
 import express, { Application } from 'express';
 import cors from 'cors'
 import { NextFunction, Request, Response } from 'express'
-import { IndexRouter } from './routes/indexRouter'
+import { IndexRouter } from './routes/index.router'
 
 class App {
     public express: Application = express();
